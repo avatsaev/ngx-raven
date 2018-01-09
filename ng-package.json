@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "src": "src/lib",
+  "dest": "dist/lib",
+  "lib": {
+    "entryFile": "index.ts",
+    "externals": {
+      "raven-js": "raven-js"
+    }
+  }
+}

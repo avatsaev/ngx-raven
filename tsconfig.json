@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "baseUrl": "src",
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -15,5 +16,9 @@
       "es2017",
       "dom"
     ]
+//    ,
+//    "paths": {
+//      "ngx-raven": ["lib/index"]
+//    }
   }
 }

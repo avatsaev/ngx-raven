@@ -1,0 +1,18 @@
+{
+  "name": "ngx-raven",
+  "version": "1.0.0",
+  "author": "Aslan Vatsaev (@avatsaev)",
+  "description": "RavenJS wrapper for Angular",
+  "keywords": ["RavenJS", "Angular", "Sentry"],
+  "license": "MIT",
+  "repository": {
+    "git": "git@github.com:avatsaev/ngx-raven.git",
+    "url": "https://github.com/avatsaev/ngx-raven"
+  },
+  "private": false,
+  "peerDependencies": {
+    "@angular/core": "^5.1.3",
+    "@angular/common": "^5.1.3",
+    "raven-js": "^3.21.0"
+  }
+}
