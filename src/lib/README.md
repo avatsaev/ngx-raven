@@ -1,3 +1,6 @@
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
 # NgxRaven
 
 Angular wrapper for [Sentry's](https://sentry.io/)  [RavenJS](https://github.com/getsentry/raven-js)
