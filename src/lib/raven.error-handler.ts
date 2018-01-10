@@ -13,7 +13,7 @@ export class RavenErrorHandler implements ErrorHandler {
 
     console.error(err);
 
-    if (this.ravenConfig.reportDialog === undefined || this.ravenConfig.reportDialog === null){
+    if (this.ravenConfig.reportDialog === undefined || this.ravenConfig.reportDialog === null) {
       this.ravenConfig.reportDialog = false;
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "ngx-raven",
-  "version": "0.0.0",
+  "version": "1.0.3",
   "author": "Aslan Vatsaev (@avatsaev)",
   "description": "RavenJS wrapper for Angular",
   "keywords": ["RavenJS", "Angular", "Sentry"],

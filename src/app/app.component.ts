@@ -6,11 +6,13 @@ import {RavenService} from 'ngx-raven';
   template: ``,
   styles: [``]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   errorProvoker: any;
 
 
-  constructor(private raven: RavenService) {}
+  constructor(private ravenService: RavenService) {
+    console.log(this.ravenService.raven);
+  }
 
 
   ngOnInit() {

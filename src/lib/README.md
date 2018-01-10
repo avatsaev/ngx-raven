@@ -1,7 +1,12 @@
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
 
 # NgxRaven
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+<p align="center">
+  <img src="http://i.imgur.com/5bd2J61.png" alt="NgxRaven"/>
+</p>
 
 Angular wrapper for [Sentry's](https://sentry.io/)  [RavenJS](https://github.com/getsentry/raven-js)
 
@@ -57,7 +62,7 @@ export class AppComponent {
 
 Raven will initialize and install itself after the injection, all exceptions will be automatically sent to your Sentry server.
 
-You can use the RavenService to access raven instance inside your components or other services
+You can use the RavenService to access raven instance inside your components or other services:
 
 
 ```typescript
@@ -73,7 +78,7 @@ export class AppComponent {
 }
 ```
 
-You can also read the Raven Module Config at any moment by injecting it
+You can also read the Raven Module Config by injecting it:
 
 
 ```typescript
