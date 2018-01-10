@@ -12,8 +12,9 @@ import {environment} from '../environments/environment';
   imports: [
     BrowserModule,
     RavenModule.forRoot({
-      dsn: 'PUBLIC_DSN',
-      enabled: environment.production
+      dsn: 'http://2868ac58876449b2a51367a3f8428aca@192.168.124.59:9995/3',
+      enabled: true,
+      reportDialog: true
     })
   ],
   providers: [],

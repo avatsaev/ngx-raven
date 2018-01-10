@@ -1,4 +1,5 @@
 import {Component, OnInit} from'@angular/core';
+import {RavenService} from 'ngx-raven';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import {Component, OnInit} from'@angular/core';
 })
 export class AppComponent implements OnInit{
   errorProvoker: any;
+
+
+  constructor(private raven: RavenService) {}
 
 
   ngOnInit() {

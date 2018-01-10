@@ -12,12 +12,9 @@ Angular wrapper for [Sentry's](https://sentry.io/)  [RavenJS](https://github.com
 
 ## Usage
 
-```typescript
+Import Raven module in your AppModule (top level module)
 
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {environment} from '../environments/environment';
+```typescript
 
 import {RavenModule} from 'ngx-raven';
 
@@ -28,7 +25,8 @@ import {RavenModule} from 'ngx-raven';
   imports: [
     BrowserModule,
     RavenModule.forRoot({
-      dsn: 'PUBLIC_DSN',
+      dsn: '__PUBLIC_DSN__',
+      reportDialog: true, // optional, false by default
       enabled: environment.production
     })
   ],
@@ -37,3 +35,57 @@ import {RavenModule} from 'ngx-raven';
 export class AppModule { }
 
 ```
+
+Inject RavenService in your AppComponent (top level component) 
+
+```typescript
+import {RavenModule} from 'ngx-raven';
+
+@Component({
+  selector: 'app-root',
+  template: ``,
+  styles: [``]
+})
+export class AppComponent {
+
+  constructor(private ravenService: RavenService) {}
+
+
+}
+
+```
+
+Raven will initialize and install itself after the injection, all exceptions will be automatically sent to your Sentry server.
+
+You can use the RavenService to access raven instance inside your components or other services
+
+
+```typescript
+
+export class AppComponent {
+
+  constructor(private ravenService: RavenService) {
+    // Check if raven is initialised and installed
+    console.log(this.ravenService.raven.isSetup());
+  }
+
+
+}
+```
+
+You can also read the Raven Module Config at any moment by injecting it
+
+
+```typescript
+export class AppComponent {
+
+  constructor(private ravenService: RavenService, private ravenConfig: RavenConfig) {
+    // Check if raven is initialised
+    console.log(this.ravenService.raven.isSetup());
+    console.log(this.ravenConfig.dsn);
+  }
+
+}
+```
+
+
