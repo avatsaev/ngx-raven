@@ -78,7 +78,7 @@ export class AppComponent {
 }
 ```
 
-You can also read the Raven Module Config by injecting it:
+You can also read/write in the Raven Module Configuration by injecting it:
 
 
 ```typescript
@@ -88,6 +88,7 @@ export class AppComponent {
     // Check if raven is initialised
     console.log(this.ravenService.raven.isSetup());
     console.log(this.ravenConfig.dsn);
+    this.ravenConfig.reportDialog = false;
   }
 
 }
