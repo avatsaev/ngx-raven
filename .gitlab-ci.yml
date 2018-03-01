@@ -36,7 +36,7 @@ lint:
     - npm run lint
 
 unit:
-  image: avatsaev/node-chrome
+  image: avatsaev/angular-chrome-headless
   stage: tests
   dependencies:
     - npm-install
