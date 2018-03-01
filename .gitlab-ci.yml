@@ -7,7 +7,7 @@ stages:
   - deploy
 
 npm-install:
-  image: avatsaev/npm-57
+  image: avatsaev/npm57
   stage: setup
   script:
     - npm ci
@@ -59,7 +59,7 @@ unit:
 #    - npm run e2e
 
 #npm-publish:
-#  image: avatsaev/npm-57
+#  image: avatsaev/npm57
 #  stage: deploy
 #  only:
 #    - tags
