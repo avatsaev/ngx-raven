@@ -10,12 +10,12 @@ export class RavenService {
 
   raven: RavenStatic;
 
-  constructor(private ravenConfig: RavenConfig) {
+  constructor(public ravenConfig: RavenConfig) {
 
     if (this.ravenConfig.enabled === undefined || this.ravenConfig.enabled === null) {
       this.ravenConfig.enabled = true;
     }
 
-    this.raven = Raven.config.bind(Raven)(ravenConfig.dsn).install.bind(Raven)();
+    this.raven = this.ravenConfig.enabled ? Raven.config.bind(Raven)(ravenConfig.dsn).install.bind(Raven)() : null;
   }
 }

@@ -1,0 +1,71 @@
+image: node:8.9.3
+
+stages:
+  - setup
+  - build
+  - tests
+  - deploy
+
+npm-install:
+  image: avatsaev/npm-57
+  stage: setup
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules
+    expire_in: 20 mins
+
+lib-build:
+  stage: build
+  dependencies:
+    - npm-install
+  artifacts:
+    paths:
+      - dist/lib/
+    expire_in: 20 mins
+  script:
+    - npm run lib:build
+
+
+lint:
+  stage: tests
+  dependencies:
+    - npm-install
+  script:
+    - npm run lint
+
+unit:
+  image: avatsaev/node-chrome
+  stage: tests
+  dependencies:
+    - npm-install
+  script:
+    - npm run test
+
+#e2e:
+#  image: avatsaev/node-chrome
+#  stage: tests
+#  dependencies:
+#    - npm-install
+#    - lib-build
+#  before_script:
+#    # give webserver some time to start
+#    - Xvfb :0 -ac -screen 0 1024x768x24 &
+#    - sleep 3
+#  script:
+#    - cat tsconfig.ci.json > tsconfig.json
+#    - npm run lib:link:ci
+#    - npm run e2e
+
+#npm-publish:
+#  image: avatsaev/npm-57
+#  stage: deploy
+#  only:
+#    - tags
+#  dependencies:
+#    - npm-install
+#    - lib-build
+#  script:
+#    - npm run lib:publish:ci
+
