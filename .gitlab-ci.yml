@@ -41,22 +41,22 @@ unit:
   dependencies:
     - npm-install
   script:
-    - npm run test
+    - npm run test:ci
 
-#e2e:
-#  image: avatsaev/node-chrome
-#  stage: tests
-#  dependencies:
-#    - npm-install
-#    - lib-build
-#  before_script:
-#    # give webserver some time to start
-#    - Xvfb :0 -ac -screen 0 1024x768x24 &
-#    - sleep 3
-#  script:
-#    - cat tsconfig.ci.json > tsconfig.json
-#    - npm run lib:link:ci
-#    - npm run e2e
+e2e:
+  image: avatsaev/node-chrome
+  stage: tests
+  dependencies:
+    - npm-install
+    - lib-build
+  before_script:
+    # give webserver some time to start
+    - Xvfb :0 -ac -screen 0 1024x768x24 &
+    - sleep 3
+  script:
+    - cat tsconfig.ci.json > tsconfig.json
+    - npm run lib:link:ci
+    - npm run e2e
 
 #npm-publish:
 #  image: avatsaev/npm57
