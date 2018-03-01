@@ -12,8 +12,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     RavenModule.forRoot({
       dsn: '__PUBLIC_DSN__',
-      enabled: true,
-      reportDialog: true
+      enabled: false,
+      reportDialog: false
     })
   ],
   providers: [],

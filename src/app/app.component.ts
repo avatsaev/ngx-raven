@@ -4,11 +4,16 @@ import {RavenService} from 'ngx-raven';
 @Component({
   selector: 'app-root',
   template: `
-    <p>Live error reporting enabled: <b>{{ravenService.ravenConfig.enabled}}</b></p>
-    <p>Raven module is setup: <b>{{ravenService.raven?.isSetup()}}</b></p>
-    <p>DSN: <b>{{ravenService.ravenConfig.dsn}}</b> </p>
+    <h2>NgxRaven</h2>
 
-    <button (click)="provokeError()">Provoke an error</button>
+    <div *ngIf="ravenService.ravenConfig.enabled">
+      <p>Live error reporting enabled: <b>{{ravenService.ravenConfig.enabled}}</b></p>
+      <p>Raven module is setup: <b>{{ravenService.raven?.isSetup()}}</b></p>
+      <p>DSN: <b>{{ravenService.ravenConfig.dsn}}</b> </p>
+
+      <button (click)="provokeError()">Provoke an error</button>
+    </div>
+
   `
 })
 
@@ -16,7 +21,9 @@ export class AppComponent {
   errorProvoker: any;
 
 
-  constructor(public ravenService: RavenService) {
+  constructor(
+    public ravenService: RavenService
+  ) {
     console.log(this.ravenService.raven);
   }
 

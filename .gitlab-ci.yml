@@ -36,7 +36,7 @@ lint:
     - npm run lint
 
 unit:
-  image: avatsaev/node-chrome
+  image: avatsaev/angular-chrome-headless
   stage: tests
   dependencies:
     - npm-install
@@ -44,28 +44,26 @@ unit:
     - npm run test:ci
 
 e2e:
-  image: avatsaev/node-chrome
+  image: avatsaev/angular-chrome-headless
   stage: tests
   dependencies:
     - npm-install
     - lib-build
   before_script:
-    # give webserver some time to start
     - Xvfb :0 -ac -screen 0 1024x768x24 &
     - sleep 3
   script:
-    - cat tsconfig.ci.json > tsconfig.json
     - npm run lib:link:ci
     - npm run e2e
 
-#npm-publish:
-#  image: avatsaev/npm57
-#  stage: deploy
-#  only:
-#    - tags
-#  dependencies:
-#    - npm-install
-#    - lib-build
-#  script:
-#    - npm run lib:publish:ci
+npm-publish:
+  image: avatsaev/npm57
+  stage: deploy
+  only:
+    - tags
+  dependencies:
+    - npm-install
+    - lib-build
+  script:
+    - npm run lib:publish:ci
 

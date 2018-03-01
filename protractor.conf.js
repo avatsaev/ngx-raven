@@ -11,10 +11,11 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {
-      'args': ['--no-sandbox', '--headless']
+      'args': ['--no-sandbox', '--headless', '--window-size=1024,768']
     }
   },
   directConnect: true,
+  baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
