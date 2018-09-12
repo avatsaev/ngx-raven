@@ -44,7 +44,7 @@ export class AppModule { }
 Inject RavenService in your AppComponent (top level component) 
 
 ```typescript
-import {RavenModule} from 'ngx-raven';
+import {RavenService} from 'ngx-raven';
 
 @Component({
   selector: 'app-root',
